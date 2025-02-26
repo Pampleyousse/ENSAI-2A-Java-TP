@@ -8,10 +8,30 @@ public class Login {
     public static void main(String[] args) {
         HashMap<String, String> userDatabase = loadUserDatabase("../data/user_hashpwd.csv");
         Scanner scanner = new Scanner(System.in);
+        boolean isLoggedIn = false;
 
-        while (true) {
+        while (!isLoggedIn) {
+            System.out.print("Enter username: ");
+            String username = scanner.nextLine();
 
-            // Code here
+            if (userDatabase.containsKey(username)) {
+                int attempts = 0;
+                boolean passwordCorrect = false;
+                while (attempts < 3 && !passwordCorrect) {
+                    System.out.print("Enter password: ");
+                    String mdp = scanner.nextLine();
+                    if (userDatabase.get(username).equals(mdp)) {
+                        System.out.print("Login successful !");
+                        isLoggedIn = true;
+                        passwordCorrect = true;
+                    }   else {
+                        attempts++;
+                        System.out.println("Incorrect password. You have " + (3 - attempts) + " attempts left.");
+                    }
+                }
+            }
+
+            scanner.close();
         }
     }
 

@@ -134,7 +134,7 @@ public class Password {
         String UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String LOWERCASE = "abcdefghijklmnopqrstuvwxyz";
         String DIGITS = "0123456789";
-        String SPECIAL_CHARACTERS = "!@#$%^&*()";
+        String SPECIAL_CHARACTERS = "!@#$%^&*()&'-|_l:;?";
         String ALL_CHARACTERS = UPPERCASE + LOWERCASE + DIGITS + SPECIAL_CHARACTERS;
         SecureRandom random = new SecureRandom();
 
