@@ -52,8 +52,6 @@ public class Password {
                 return password;
             }
         }
-
-        return null;
     }
 
     /**
@@ -106,9 +104,13 @@ public class Password {
      */
     public static HashMap<String, Boolean> checkPasswordsList(ArrayList<String> passwords) {
 
-        // Code here
+        HashMap<String, Boolean> liste = new HashMap<>();
 
-        return null;
+        for (String mdp : passwords) {
+            liste.put(mdp, isStrongPassword(mdp));
+        }
+
+        return liste;
     }
 
     /**
