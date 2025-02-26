@@ -1,6 +1,8 @@
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -52,6 +54,8 @@ public class Password {
                 return password;
             }
         }
+        
+        return null;
     }
 
     /**
@@ -127,9 +131,39 @@ public class Password {
      */
     public static String generatePassword(int nbCar) {
 
-        // Code here
+        String UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String LOWERCASE = "abcdefghijklmnopqrstuvwxyz";
+        String DIGITS = "0123456789";
+        String SPECIAL_CHARACTERS = "!@#$%^&*()";
+        String ALL_CHARACTERS = UPPERCASE + LOWERCASE + DIGITS + SPECIAL_CHARACTERS;
+        SecureRandom random = new SecureRandom();
 
-        return null;
+        if (nbCar < 4){
+            System.out.println("4 charactères minimum");
+        } 
+        
+        ArrayList<Character> mdp = new ArrayList<>();
+
+        mdp.add(UPPERCASE.charAt(random.nextInt(UPPERCASE.length())));
+        mdp.add(LOWERCASE.charAt(random.nextInt(LOWERCASE.length())));
+        mdp.add(DIGITS.charAt(random.nextInt(DIGITS.length())));
+        mdp.add(SPECIAL_CHARACTERS.charAt(random.nextInt(SPECIAL_CHARACTERS.length())));
+
+        // Remplir les autres cases
+        for (int i = 4; i < nbCar; i++) {
+            mdp.add(ALL_CHARACTERS.charAt(random.nextInt(ALL_CHARACTERS.length())));
+        }
+
+        // Mélanger les characters
+        Collections.shuffle(mdp);
+
+        // Convertir en string
+        StringBuilder result = new StringBuilder();
+        for (char c : mdp) {
+            result.append(c);
+        }
+
+        return result.toString();
     }
 
     public static void main(String[] args) {
