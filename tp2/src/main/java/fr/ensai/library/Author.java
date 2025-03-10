@@ -5,7 +5,7 @@ import java.util.Objects;
 /**
  * Represents an Author.
  */
-public class Author extends person {
+public class Author extends Person {
 
     // Attributes
     private String nationality;
@@ -14,7 +14,7 @@ public class Author extends person {
      * Constructs a new Book object.
      */
     public Author(String name, int age, String nationality) {
-        super(name, age); 
+        super(name, age);
         this.nationality = nationality;
     }
 
