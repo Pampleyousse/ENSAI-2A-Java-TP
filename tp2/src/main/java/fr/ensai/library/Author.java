@@ -8,21 +8,14 @@ import java.util.Objects;
 public class Author extends person {
 
     // Attributes
-    private String name;
-    private int age;
     private String nationality;
 
     /**
      * Constructs a new Book object.
      */
     public Author(String name, int age, String nationality) {
-        this.name = name;
-        this.age = age;
+        super(name, age);
         this.nationality = nationality;
-    }
-
-    public String getName() {
-        return this.name;
     }
 
     /**
