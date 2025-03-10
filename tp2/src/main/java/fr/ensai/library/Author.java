@@ -14,7 +14,7 @@ public class Author extends person {
      * Constructs a new Book object.
      */
     public Author(String name, int age, String nationality) {
-        super(name, age);
+        super(name, age); 
         this.nationality = nationality;
     }
 
@@ -30,12 +30,12 @@ public class Author extends person {
             return false;
 
         Author author = (Author) obj;
-        return Objects.equals(name, author.name);
+        return Objects.equals(getName(), author.getName());
     }
 
     @Override
     public String toString() {
-        return "Author " + name;
+        return "Author " + getName();
     }
 
 }

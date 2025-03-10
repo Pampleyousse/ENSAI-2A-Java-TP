@@ -3,6 +3,7 @@ package fr.ensai.library;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -11,30 +12,30 @@ public class Library {
 
     // Attributes
     private String name;
-    private ArrayList<Book> books;
+    private ArrayList<Item> items;
 
     /**
      * Constructs a new library object.
      */
-    public Library(String name, ArrayList<Book> books) {
+    public Library(String name, ArrayList<Item> items) {
         this.name = name;
-        this.books = books;
+        this.items = items;
     }
 
     /**
-     * Add new books in the library
+     * Add new items in the library
      */
-    public void addBook(Book book) {
-        books.add(book);
+    public void addItem(Item item) {
+        items.add(item);
     }
 
     /**
      * Print all books in the library
      */
-    public void displayBooks() {
-        if (books != null) {
-            for (Book book : books)
-                System.out.println(book.toString());
+    public void displayItems() {
+        if (items != null) {
+            for (Item item : items)
+                System.out.println(item.toString());
         } else {
             System.out.println("No book in the library");
         }
@@ -69,13 +70,13 @@ public class Library {
                     // Check if author already exists in the map
                     Author author = authors.get(authorName);
                     if (author == null) {
-                        author = new Author(authorName);
+                        author = new Author(authorName, 33, "CN");
                         authors.put(authorName, author);
                         System.out.println(author.toString());
                     }
                     Book book = new Book(isbn, title, author, year, pageCount);
 
-                    this.addIem(book);
+                    this.addItem(book);
                 }
             }
         } catch (
